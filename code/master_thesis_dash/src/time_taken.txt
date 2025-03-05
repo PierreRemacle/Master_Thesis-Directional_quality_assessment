@@ -1,0 +1,8 @@
+Time taken: 425.9238979816437
+ 
+s_curve_LD.csv: 843.8575060367584
+s_curve_HD.csv: 830.5887219905853
+spherical_data.csv: 827.69016289711
+diabetes_distorded.csv: 417.2644443511963
+diabetes_distorded.csv: 421.24097895622253
+diabetes.csv: 776.7816269397736
