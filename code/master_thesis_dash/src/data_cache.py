@@ -5,6 +5,8 @@ import pickle
 import plotly.graph_objs as go
 import os
 from Utils import levenshteinDistanceDP
+from Utils import ALL_path_3
+from Utils import alpha_shape
 import matplotlib.pyplot as plt
 from sklearn.neighbors import NearestNeighbors
 
@@ -87,11 +89,22 @@ class DataCache:
                 "Folder not set. Please set a folder using `set_folder()`.")
 
         if self.current_folder not in self.data:
+
             LD_data = np.load(f"../{self.current_folder}/LD_data.npy")
             HD_data = np.load(f"../{self.current_folder}/HD_data.npy")
+
+            if not os.path.exists(f"../{self.current_folder}/LD_all_paths_2.npy"):
+
+                X_reduced_reshaped = (LD_data - np.min(LD_data)) / \
+                    (np.max(LD_data) - np.min(LD_data)) * 100
+
+                _, _, edges = alpha_shape(X_reduced_reshaped, alpha=0.00001)
+                print("Calculating missing paths...")
+                ALL_path_3(LD_data, HD_data, edges, self.current_folder)
+
+            graph = np.load(f"../{self.current_folder}/graph.npy")
             LD_paths = np.load(f"../{self.current_folder}/LD_all_paths_2.npy")
             HD_paths = np.load(f"../{self.current_folder}/HD_all_paths_2.npy")
-            graph = np.load(f"../{self.current_folder}/graph.npy")
             if not os.path.exists(f"../{self.current_folder}/results_color.pkl"):
                 print("Calculating missing results...")
                 path_rnx_distance_sorted(
