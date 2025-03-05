@@ -88,6 +88,6 @@ Remacle, P. (2024). Directional Quality Assessment for Nonlinear Dimensionality 
 [Specify your license, e.g., MIT License]
 
 ## Contact
-Pierre Remacle - [your email]
+Pierre Remacle - pierre.remacle@uclouvain.be
 
 **Disclaimer**: This research represents an initial exploration into more nuanced dimensionality reduction quality assessment. Continued research and refinement are encouraged.
