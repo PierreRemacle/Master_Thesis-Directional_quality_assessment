@@ -28,7 +28,7 @@ def compute_new_rnx(X, X_reduced, embedding_name):
         (np.max(X_reduced) - np.min(X_reduced)) * 100
     # distord the data to see the impact of the distortion
     # multiply the x coordinates by 1.5
-    X_reduced_reshaped[:, 0] = X_reduced_reshaped[:, 0] * 1.5
+    X_reduced_reshaped[:, 0] = X_reduced_reshaped[:, 0]
     _, _, edges = alpha_shape(X_reduced_reshaped, alpha=0.00001)
 
     # results, localisation_of_errors, error_per_start = random_selection_path_2(
@@ -132,14 +132,14 @@ def main():
 
     # Compute RNX for each neighborhood size and each dataset
     # for dataset_name, (X, y) in [("MNIST", (X_mnist, y_mnist)), ("COIL-20", (X_coil, y_coil))]:
-    for dataset_name, (X, y) in [("MNIST_distorded_x1.5", (X_mnist, y_mnist))]:
+    for dataset_name, (X, y) in [("MNIST", (X_mnist, y_mnist))]:
         # for dataset_name, (X, y) in [("COIL-20", (X_coil, y_coil))]:
 
         print(f"Results for {dataset_name} dataset:")
         rnx_results = {}
         x_results = {}
         # Apply each method and calculate RNX for different neighborhood sizes
-        for method_name in ["PCA", "t-SNE", "UMAP", "Isomap", "MDS"]:
+        for method_name in ["PCA", "t-SNE"]:
 
             X_reduced = apply_reduction_methods(X, y, method_name)
             compute_new_rnx(X, X_reduced, method_name + "_" + dataset_name)
