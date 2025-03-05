@@ -16,5 +16,15 @@ Code/t-SNE_MNIST_data/
 Code/UMAP_COIL-20_data/
 Code/UMAP_diabetes_data/
 PLOTS/
-
+.gitignore
+.jukit/
+Code/.jukit/
+Code/.DS_Store
+Code/.env 
+Code/src
+.DS_Store
+.env
+spherical_data.csv
+trusworthiness.png
 zadu/
+
