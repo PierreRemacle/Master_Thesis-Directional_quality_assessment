@@ -84,9 +84,6 @@ pip install -r requirements.txt
 ## Citation
 Remacle, P. (2024). Directional Quality Assessment for Nonlinear Dimensionality Reduction. Master's Thesis, École polytechnique de Louvain.
 
-## License
-[Specify your license, e.g., MIT License]
-
 ## Contact
 Pierre Remacle - pierre.remacle@uclouvain.be
 
